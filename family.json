@@ -1,0 +1,28 @@
+[
+  { "id": 1, "name": "Kazimieras Gusarovas", "gender": "male", "pids": [2] },
+  { "id": 2, "name": "Aldona Gusarovienė", "gender": "female", "pids": [1] },
+
+  { "id": 3, "name": "Jonas Gusarovas", "gender": "male", "fid": 1, "mid": 2, "pids": [6] },
+  { "id": 4, "name": "Marija Gusarovienė", "gender": "female", "fid": 1, "mid": 2, "pids": [15] },
+  { "id": 5, "name": "Antanas Gusarovas", "gender": "male", "fid": 1, "mid": 2, "pids": [18] },
+
+  { "id": 6, "name": "Ona Gusarovienė", "gender": "female", "pids": [3] },
+  { "id": 7, "name": "Petras Gusarovas", "gender": "male", "fid": 3, "mid": 6, "pids": [9] },
+  { "id": 8, "name": "Rūta Gusarovaitė", "gender": "female", "fid": 3, "mid": 6 },
+
+  { "id": 9, "name": "Elena Gusarovienė", "gender": "female", "pids": [7] },
+  { "id": 10, "name": "Tomas Gusarovas", "gender": "male", "fid": 7, "mid": 9, "pids": [12] },
+  { "id": 11, "name": "Gabija Gusarovaitė", "gender": "female", "fid": 7, "mid": 9 },
+
+  { "id": 12, "name": "Monika Gusarovaitė", "gender": "female", "pids": [10] },
+  { "id": 13, "name": "Nojus Gusarovas", "gender": "male", "fid": 10, "mid": 12 },
+  { "id": 14, "name": "Eglė Gusarovaitė", "gender": "female", "fid": 10, "mid": 12 },
+
+  { "id": 15, "name": "Vytautas Gusarovas", "gender": "male", "pids": [4] },
+  { "id": 16, "name": "Saulius Gusarovas", "gender": "male", "fid": 15, "mid": 4 },
+  { "id": 17, "name": "Birutė Gusarovaitė", "gender": "female", "fid": 15, "mid": 4 },
+
+  { "id": 18, "name": "Ieva Gusarovaitė", "gender": "female", "pids": [5] },
+  { "id": 19, "name": "Mantas Gusarovas", "gender": "male", "fid": 5, "mid": 18 },
+  { "id": 20, "name": "Lukas Gusarovas", "gender": "male", "fid": 5, "mid": 18 }
+]
