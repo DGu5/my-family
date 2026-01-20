@@ -50,6 +50,15 @@ const navMenu = document.getElementById('nav-menu');
 
 mobileBtn.addEventListener('click', () => {
     navMenu.classList.toggle('active');
+    mobileBtn.classList.toggle('open'); // Pridedame klasę mygtuko animacijai
+});
+
+// Uždaryti meniu paspaudus bet kurią nuorodą
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileBtn.classList.remove('open');
+    });
 });
 
 // Uždaryti meniu paspaudus nuorodą
@@ -58,3 +67,18 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         navMenu.classList.remove('active');
     });
 });
+
+// Back to top logika
+const backToTop = document.createElement('a');
+backToTop.id = "back-to-top";
+backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+backToTop.href = "#";
+document.body.appendChild(backToTop);
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTop.style.display = "flex";
+    } else {
+        backToTop.style.display = "none";
+    }
+};

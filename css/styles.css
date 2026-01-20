@@ -183,44 +183,73 @@ footer {
     color: var(--accent-color);
 }
 
-/* --- Mobilioji versija --- */
+/* --- Navigacija Bendras --- */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+/* --- MOBILUS MENIU (Numatytasis nustatymas mažiems ekranams) --- */
 @media (max-width: 768px) {
     .mobile-menu-btn {
-        display: flex;
+        display: flex; /* Parodome hamburgerį */
     }
 
     .nav-links {
-        display: none; /* Paslepiame įprastą meniu */
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--bg-color);
         flex-direction: column;
-        padding: 2rem;
         text-align: center;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 100;
+        
+        /* Paslėpimas ir Animacija */
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0; 
     }
 
+    /* Aktyvus meniu būsena paspaudus */
     .nav-links.active {
-        display: flex; /* Parodome, kai paspaudžiama */
+        max-height: 500px; /* Pakankamas aukštis visiems punktams */
+        opacity: 1;
+        padding: 2rem 0;
     }
 
-    .content-section {
-        padding: 3rem 5%;
+    .nav-links li {
+        margin: 15px 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease 0.2s;
     }
 
-    #tree {
-        height: 450px;
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- STALINIS KOMPIUTERIS (Grąžiname matomumą dideliems ekranams) --- */
+@media (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none; /* Paslepiame hamburgerį */
     }
 
-    h2 {
-        font-size: calc(2.5rem * 0.85); /* Sumažiname 15% nuo pradinio 2.5rem */
-    }
-
-    /* Jei naudojate timeline-title istorijos puslapyje, jam taip pat galite pritaikyti */
-    .timeline-title {
-        font-size: calc(2.2rem * 0.85);
+    .nav-links {
+        /* Perrašome mobilias taisykles, kad meniu būtų matomas */
+        position: static;
+        max-height: none;
+        opacity: 1;
+        flex-direction: row;
+        box-shadow: none;
+        padding: 0;
+        overflow: visible;
     }
 }
 
@@ -265,4 +294,27 @@ footer {
 
 .read-more-btn:hover {
     opacity: 0.9;
+}
+
+/* Back to top mygtukas */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: none; /* Paslėptas pradžioje */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
 }

@@ -1,21 +1,23 @@
-/* Specifinis stilius istorijos antraštei */
+@import url("../styles.css");
+/* Centruotas pavadinimas */
 .timeline-title {
-    display: block;          /* Leidžia elementui užimti visą plotį */
-    text-align: center;      /* Centruoja tekstą */
-    border-bottom: none;     /* Panaikina pabraukimą */
-    margin: 3rem auto;       /* Prideda tarpus iš viršaus ir apačios */
-    width: 100%;             /* Užtikrina, kad centravimas veiktų per visą plotį */
+    display: block;
+    text-align: center;
+    border-bottom: none;
+    margin: 3rem auto;
+    width: 100%;
+    color: var(--accent-color);
 }
 
-/* Laiko juostos struktūra */
+/* Laiko juostos konteineris */
 .timeline {
     position: relative;
     max-width: 900px;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 2rem 5%;
 }
 
-/* Vertikali linija */
+/* Pagrindinė linija (tik kompiuteriams) */
 .timeline::after {
     content: '';
     position: absolute;
@@ -27,42 +29,71 @@
     margin-left: -1px;
 }
 
-/* Įvykių kortelės */
+/* Kortelių stilius */
 .timeline-item {
     padding: 20px 40px;
     position: relative;
     width: 50%;
+    margin-bottom: 2rem;
 }
 
 .timeline-item:nth-child(odd) { left: 0; text-align: right; }
 .timeline-item:nth-child(even) { left: 50%; text-align: left; }
-
-/* Taškai ant linijos */
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: var(--bg-color);
-    border: 3px solid var(--accent-color);
-    border-radius: 50%;
-    top: 25px;
-    z-index: 1;
-}
-
-.timeline-item:nth-child(odd)::before { right: -13px; }
-.timeline-item:nth-child(even)::before { left: -10px; }
 
 .timeline-date {
     font-family: var(--header-font);
     font-size: 1.8rem;
     color: var(--accent-color);
     margin-bottom: 0.5rem;
+    display: block;
 }
 
 .timeline-content {
     background: white;
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--accent-color); /* Akcentas kortelės šone */
+}
+
+/* --- MOBILUS SPRENDIMAS (iPhone ir kitiems) --- */
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 20px; /* Perkeliame liniją į kairę */
+    }
+
+    .timeline-item {
+        width: 100%;    /* Kortelė užima visą plotį */
+        left: 0 !important;
+        padding-left: 50px; /* Vieta linijai kairėje */
+        padding-right: 0;
+        text-align: left !important;
+    }
+
+    .timeline-date {
+        font-size: 1.4rem; /* Sumažiname pagal tavo pageidavimą */
+    }
+
+    .timeline-content {
+        padding: 1.2rem;
+    }
+
+    /* Taškai ant linijos mobiliems */
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        left: 14px; /* Centruojame ant linijos */
+        top: 28px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        z-index: 2;
+    }
+    
+    /* Panaikiname senus taškus iš kompiuterinės versijos */
+    .timeline-item:nth-child(odd)::before,
+    .timeline-item:nth-child(even)::before {
+        display: none; 
+    }
 }
