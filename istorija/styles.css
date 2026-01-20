@@ -97,3 +97,134 @@
         display: none; 
     }
 }
+
+h3 {
+    font-family: var(--header-font);
+    color: var(--accent-color);
+    margin: 1rem 0;
+    font-size: 1.6rem;
+}
+
+/* Nuotraukos vieta kortelėje */
+.timeline-img-placeholder {
+    width: 100%;
+    height: 180px;
+    background-color: var(--soft-green);
+    border: 1px dashed var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Modalinio lango (Pop-up) stilius */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(45, 62, 48, 0.8); /* Solitude žalia su permatomumu */
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+    margin: 5% auto;
+    padding: 3rem;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px;
+    position: relative;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: var(--accent-color);
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+/* Mygtuko stilius kortelėje */
+.modal-trigger {
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* Įdėkite tai į savo styles.css pabaigą */
+.timeline-flex {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.timeline-text {
+    flex: 1; /* Leidžia tekstui užimti visą laisvą vietą kairėje */
+}
+
+.timeline-img-mini {
+    flex-shrink: 0; /* Neleidžia nuotraukai susispausti */
+    width: 150px;
+    height: 100px;
+    background-color: var(--soft-green);
+    border: 1px dashed var(--accent-color);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+    opacity: 0.6;
+}
+
+/* Mobiliems įrenginiams nuotrauką nukeliame žemyn */
+@media (max-width: 600px) {
+    .timeline-flex {
+        flex-direction: column;
+    }
+    .timeline-img-mini {
+        width: 100%;
+        height: 150px;
+    }
+
+    .timeline-content.left {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: start !important;
+    }
+
+    .timeline-content.right{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: start !important;
+    }
+}
+
+/* Kairė pusė - viską stumiame į dešinę (link centro) */
+.timeline-content.left {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.timeline-content.right {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}

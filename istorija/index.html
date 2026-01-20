@@ -10,10 +10,11 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="./favicon.ico">
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <script src="../js/header-template.js" defer></script>
 </head>
 <body>
-    <header>
+    <!-- <header>
         <nav>
             <a href="../" class="logo">Gusarovai</a>
             <button class="mobile-menu-btn" id="mobile-cta">
@@ -26,7 +27,8 @@
                 <li><a href="index.html">Istorija</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
+    <main-header></main-header>
 
     <main class="content-section">
        <h2 class="timeline-title">Giminės laiko juosta</h2>
@@ -34,32 +36,65 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-date">XVIII a.</div>
-                <div class="timeline-content">
+                <div class="timeline-content left">
                     <h3>Šaknys</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Šiame amžiuje minimi pirmieji giminės atstovai senuosiuose raštuose.</p>
+                    <div class="timeline-img-mini">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <button class="read-more-btn modal-trigger" 
+                        data-title="Šaknys" 
+                        data-file="test.html">
+                    Skaityti daugiau &rarr;
+                    </button>
                 </div>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-date">XIX a.</div>
-                <div class="timeline-content">
+                <div class="timeline-content right">
                     <h3>Plėtra</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Giminė pradėjo kurtis didžiuosiuose miestuose, užsiėmė amatais ir prekyba.</p>
+                    <div class="timeline-img-mini">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <button class="read-more-btn modal-trigger" 
+                        data-title="Plėtra" 
+                        data-file="test.html">
+                    Skaityti daugiau &rarr;
+                    </button>
                 </div>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-date">XX a.</div>
-                <div class="timeline-content">
+                <div class="timeline-content left">
                     <h3>Iššūkiai ir Atgimimas</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Modernėjanti giminė išgyveno karų laikotarpius ir sėkmingai tęsė tradicijas.</p>
+                    <div class="timeline-img-mini">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <button class="read-more-btn modal-trigger" 
+                        data-title="Iššūkiai ir Atgimimas" 
+                        data-file="pletra-1845.html">
+                    Skaityti daugiau &rarr;
+                    </button>
                 </div>
             </div>
         </div>
     </main>
 
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
     <div id="common-footer"></div>
     <script src="../js/footer-template.js"></script>
     <script src="../js/main.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>
