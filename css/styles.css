@@ -299,24 +299,32 @@ footer {
 /* Back to top mygtukas */
 #back-to-top {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
     background-color: var(--accent-color);
-    color: white;
-    width: 45px;
-    height: 45px;
+    color: var(--white);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    display: none; /* Paslėptas pradžioje */
+    display: none; /* Pradžioje paslėptas */
     align-items: center;
     justify-content: center;
     text-decoration: none;
     z-index: 1000;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
 }
 
 #back-to-top:hover {
     transform: translateY(-5px);
+    background-color: #3e5241; /* Šiek tiek šviesesnė žalia už akcentinę */
+}
+
+/* Užtikriname, kad ikona būtų centre */
+#back-to-top i {
+    font-size: 1.2rem;
 }
 
 html {

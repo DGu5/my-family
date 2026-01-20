@@ -17,3 +17,25 @@ document.addEventListener("DOMContentLoaded", function() {
         footerElement.innerHTML = footerHTML;
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTop = document.createElement('a');
+    backToTop.id = "back-to-top";
+    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTop.href = "#";
+    document.body.appendChild(backToTop);
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTop.style.display = "flex";
+        } else {
+            backToTop.style.display = "none";
+        }
+    };
+    
+    // Nepamirškite pridėti sklandaus skrolinimo funkcijos
+    backToTop.onclick = function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+});
