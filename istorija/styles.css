@@ -58,44 +58,62 @@
 
 /* --- MOBILUS SPRENDIMAS (iPhone ir kitiems) --- */
 @media (max-width: 768px) {
+    /* 1. Pastumiame pagrindinę liniją į kairę */
     .timeline::after {
-        left: 20px; /* Perkeliame liniją į kairę */
+        left: 0px;
     }
 
+    /* 2. Išplečiame elementus per visą plotį */
     .timeline-item {
-        width: 100%;    /* Kortelė užima visą plotį */
-        left: 0 !important;
-        padding-left: 50px; /* Vieta linijai kairėje */
-        padding-right: 0;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 10px; /* Minimalus tarpas dešinėje */
+        padding-top: 20px;
+        padding-bottom: 20px;
         text-align: left !important;
     }
 
-    .timeline-date {
-        font-size: 1.4rem; /* Sumažiname pagal tavo pageidavimą */
+    /* 3. Užtikriname, kad visi elementai (tiek kairieji, tiek dešinieji) būtų vienoje linijoje */
+    .timeline-item.right, .timeline-item.left {
+        left: 0;
     }
 
+    /* 4. Timeline apskritimai (dots) ant linijos */
+    .timeline-item::after {
+        left: 13px; /* Centruojame tašką ant pastumtos linijos */
+        right: auto;
+    }
+
+    /* 5. Turinys ir Flex nustatymai */
     .timeline-content {
-        padding: 1.2rem;
+        padding: 15px; /* Vidinis kortelės tarpas */
+        width: 100%;
     }
 
-    /* Taškai ant linijos mobiliems */
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        width: 12px;
-        height: 12px;
-        left: 14px; /* Centruojame ant linijos */
-        top: 28px;
-        background: var(--accent-color);
-        border-radius: 50%;
-        z-index: 2;
+    .timeline-flex {
+        flex-direction: column !important; /* Foto po tekstu */
+        align-items: flex-start;
+    }
+
+    .timeline-img-mini {
+        width: 100%;
+        height: 150px;
+        margin: 15px 0 0 0; /* Tarpas virš nuotraukos */
+    }
+
+    .timeline-date {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 5px;
+        left: 0 !important;
+        text-align: left;
+    }
+
+    .timeline {
+        padding: 0 !important;
     }
     
-    /* Panaikiname senus taškus iš kompiuterinės versijos */
-    .timeline-item:nth-child(odd)::before,
-    .timeline-item:nth-child(even)::before {
-        display: none; 
-    }
+    .timeline-item:nth-child(even) { left: 0px !important; text-align: left; }
 }
 
 h3 {
