@@ -222,6 +222,10 @@ footer {
         padding: 2rem 0;
     }
 
+    .content-section{
+        padding: 5rem 5% !important;
+    }
+
     .nav-links li {
         margin: 15px 0;
         opacity: 0;
@@ -329,4 +333,25 @@ footer {
 
 html {
     scroll-behavior: smooth;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Padidinau tarpą geresniam vaizdui */
+    text-decoration: none;
+    line-height: 1; /* Neleidžia tekstui stumti konteinerio aukščio */
+}
+
+.logo-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain; /* Užtikrina, kad PNG nebūtų iškraipytas */
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    will-change: transform; /* Panaikina "šokinėjimo" efektą */
+}
+
+.logo:hover .logo-icon {
+    transform: scale(1.1); /* Šiek tiek padidinau, kad efektas būtų aiškesnis */
 }

@@ -3,7 +3,10 @@ class MyHeader extends HTMLElement {
         this.innerHTML = `
         <header>
             <nav>
-                <a href="/" class="logo">Gusarovai</a>
+                <a href="/" class="logo">
+                    <img src="../oak-tree.png" alt="Gusarovai logotipas" class="logo-icon">
+                    Gusarovai
+                    </a>
                 <button class="mobile-menu-btn" id="mobile-btn">
                     <span></span>
                     <span></span>
