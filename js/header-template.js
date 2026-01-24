@@ -17,7 +17,7 @@ class MyHeader extends HTMLElement {
                     <li><a href="/#medis">Giminės medis</a></li>
                     <li><a href="/istorija">Istorija</a></li>
                     <li><a href="/#galerija">Galerija</a></li>
-                    <li><a href="/#kontaktai">Kontaktai</a></li>
+                    <li><a href="/zemelapis">Žemėlapis</a></li>
                 </ul>
             </nav>
         </header>

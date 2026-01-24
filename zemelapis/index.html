@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giminės Žemėlapis | Gusarovai</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="../css/styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <script src="../js/header-template.js" defer></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <main-header></main-header>
+
+    <main>
+        <section class="content-section" style="text-align: center;">
+            <h2>Giminės žemėlapis</h2>
+            <p>Mūsų giminės šaknys ir didžiausia bendruomenės dalis telkiasi šiose pasaulio dalyse:</p>
+            
+            <div id="map" style="height: 500px; width: 100%; max-width: 900px; margin: 3rem auto; border-radius: 8px; border: 1px solid rgba(45, 62, 48, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
+            <div class="data-source">
+                <div class="source-divider"></div>
+                <div class="source-content">
+                    <a href="https://www.myheritage.com/" target="_blank" rel="noopener" class="source-logo">
+                        <i class="fa-solid fa-tree"></i> <span>MyHeritage</span>
+                    </a>
+                    <p>Žemėlapio ir giminės medžio duomenys surinkti bei susisteminti naudojantis <strong>MyHeritage</strong> platforma. Ši informacija padeda mums tiksliau žinoti giminaičių pasiskirstyma po visą pasaulį.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <div id="common-footer"></div>
+    <script src="../js/footer-template.js">
+    </script><script src="./main.js"></script>
+</body>
+</html>
