@@ -2,9 +2,8 @@ const footerHTML = `
     <footer>
         <div class="footer-content">
             <div class="social-links">
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:pastas@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/DGu5/my-family" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="dovydas.gs@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
             <p>&copy; 2026 Gusarovai. Visos teisės saugomos.</p>
         </div>

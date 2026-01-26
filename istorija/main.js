@@ -10,7 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const title = this.getAttribute('data-title');
 
             modalTitle.innerText = title;
-            modalBody.innerHTML = "Kraunama..."; // Laikinas tekstas
+            modalBody.innerHTML = `
+                <div class="loader-container">
+                    <div class="spinner"></div>
+                </div>`;
             modal.style.display = "block";
             document.body.style.overflow = "hidden";
 
