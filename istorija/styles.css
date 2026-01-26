@@ -198,17 +198,30 @@ h3 {
 }
 
 .timeline-img-mini {
-    flex-shrink: 0; /* Neleidžia nuotraukai susispausti */
-    width: 150px;
-    height: 100px;
-    background-color: var(--soft-green);
-    border: 1px dashed var(--accent-color);
-    border-radius: 4px;
+    flex-shrink: 0;
+    /* width: 120px;
+    height: 120px; */
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(45, 62, 48, 0.1);
+}
+
+.timeline-img-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Užtikrina, kad nuotrauka užpildytų kvadratą */
+    display: block;
+}
+
+/* Jei nuotraukos nėra, naudojame ikoną kaip placeholderį */
+.timeline-img-mini i {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    background: var(--soft-green);
     color: var(--accent-color);
-    opacity: 0.6;
+    font-size: 1.5rem;
 }
 
 /* Mobiliems įrenginiams nuotrauką nukeliame žemyn */
@@ -277,4 +290,11 @@ h3 {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+#modalBody img {
+    max-height: 70vh; /* Nuotrauka užims ne daugiau nei 70% ekrano aukščio */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
