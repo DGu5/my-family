@@ -355,3 +355,56 @@ html {
 .logo:hover .logo-icon {
     transform: scale(1.1); /* Šiek tiek padidinau, kad efektas būtų aiškesnis */
 }
+
+.gallery-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.polaroid {
+    background: white;
+    padding: 15px 15px 40px 15px; /* Daugiau vietos apačioje kaip tikrame Polaroide */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-radius: 2px;
+    transition: transform 0.3s ease, z-index 0s;
+    cursor: pointer;
+    position: relative;
+    max-width: 250px;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Nukerpa nuotrauką, kad visos būtų vienodo dydžio */
+    border: 1px solid #eee;
+}
+
+/* Užvedus pelę, nuotrauka išsitiesina ir pakyla virš kitų */
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.1) !important;
+    z-index: 10;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+
+@media (max-width: 600px) {
+    .gallery-wrapper {
+        display: block;
+        position: relative;
+        height: 450px; /* Padidiname aukštį, kad nuotraukos turėtų kur "nukristi" */
+        margin: 0 auto;
+        width: 100%;
+        overflow: hidden; /* Apsauga, kad pasuktos nuotraukos neišlystų iš ekrano */
+    }
+
+    .polaroid {
+        position: absolute !important;
+        left: 50% !important;
+        /* Pašaliname margin-left, nes naudosime translateX */
+        margin-left: 0 !important; 
+        max-width: 180px; /* Mažesnės nuotraukos telefonams atrodo geriau */
+    }
+}

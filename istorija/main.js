@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 2. Patobulintas nuotraukų apdorojimas su dydžio logika
+    // 2. Patobulintas nuotraukų apdorojimas - prisitaikantis prie ekrano
     document.querySelectorAll('.timeline-img-mini img').forEach(img => {
         img.style.cursor = 'zoom-in';
         img.onclick = function() {
@@ -37,24 +37,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
             modalTitle.innerText = imgAlt;
             
-            // Logika: 
-            // - Jei nuotrauka maža, ištempiame iki 520px (min-width).
-            // - Jei nuotrauka didelė, ji užima 100% modalinio lango (bet ne daugiau nei savo tikrą dydį).
-            // - max-height apsaugo, kad nuotrauka neišlįstų per ekrano apačią.
             modalBody.innerHTML = `
-                <div style="text-align:center; display: flex; justify-content: center;">
+                <div style="text-align:center; display: flex; justify-content: center; align-items: center; min-height: 200px;">
                     <img src="${imgSrc}" alt="${imgAlt}" 
                          style="
-                            width: 100%; 
-                            min-width: 520px; 
-                            max-width: 100%; 
+                            width: auto;            /* Leidžia išlaikyti proporcijas */
+                            max-width: 100%;        /* Neleidžia išlipti iš ekrano rėmų */
+                            min-width: 300px;        /* Minimalus dydis mažiems ekranams */
                             height: auto; 
-                            max-height: 75vh; 
+                            max-height: 75vh;       /* Neleidžia būti aukštesnei nei ekranas */
                             object-fit: contain;
                             border-radius: 4px; 
                             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
                          ">
                 </div>`;
+            
+            // Papildoma CSS taisyklė kompiuteriams (tik jei ekranas didelis)
+            const modalImg = modalBody.querySelector('img');
+            if (window.innerWidth > 600) {
+                modalImg.style.width = '900px'; // Padidinta iki 1000px
+                modalImg.style.maxHeight = '85vh'; // Leidžiame būti aukštesnei
+            }
+
             openModal();
         };
     });

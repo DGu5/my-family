@@ -153,15 +153,16 @@ h3 {
 
 .modal-content {
     background-color: var(--bg-color);
-    margin: 5% auto;
-    padding: 2rem;
+    margin: 2% auto; /* Sumažiname tarpą nuo viršaus, kad tilptų didesnė foto */
+    padding: 1.5rem; /* Šiek tiek mažesnis padding, kad liktų daugiau vietos turiniui */
     border-radius: 8px;
-    width: 90%;
-    max-width: 700px;
+    width: 95%; /* Naudojame daugiau ekrano pločio */
+    max-width: 900px; /* Padidiname maksimalų plotį (buvo 900px) */
     position: relative;
     box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-    max-height: 80vh;
+    max-height: 90vh; /* Leidžiame užimti 90% ekrano aukščio (buvo 80vh) */
     overflow-y: auto;
+    overflow-x: hidden; /* Apsauga nuo horizontalaus skrolinimo */
 }
 
 .close-modal {
