@@ -3,7 +3,7 @@ const footerHTML = `
         <div class="footer-content">
             <div class="social-links">
                 <a href="https://github.com/DGu5/my-family" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="dovydas.gs@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:dovydas.gs@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
             <p>&copy; 2026 Gusarovai. Visos teisės saugomos.</p>
         </div>
