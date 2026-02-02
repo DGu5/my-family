@@ -90,50 +90,31 @@ document.addEventListener('DOMContentLoaded', function() {
     if (galleryContainer) {
         const shuffled = familyPhotos.sort(() => 0.5 - Math.random());
 
-
-        /*
         shuffled.slice(0, 5).forEach((photo, index) => {
             const polaroidDiv = document.createElement('div');
+            const leftArray = [10, 28, 51, 48, 34];
             polaroidDiv.className = 'polaroid';
             
             const randomRotate = Math.floor(Math.random() * 20) - 10;
             
             if (window.innerWidth < 600) {
-                // Mobiliems: centravimas + atsitiktinis poslinkis į šonus
-                const randomX = Math.floor(Math.random() * 30) - 15; // Mažas nuokrypis nuo centro
-                const randomY = index * 40; // Didesnis tarpas tarp nuotraukų einant žemyn
+                // Horizontalus išmėtymas: nuo 10% iki 60% ekrano pločio
+                // Tai užtikrins, kad nuotraukos nebus vienoje krūvoje
+                const randomLeft = leftArray[index]; 
                 
+                // Vertikalus tarpas: didesnis žingsnis, kad jos nesidengtų per stipriai
+                const randomY = (index +1) * 14; 
+
                 polaroidDiv.style.top = `${randomY}px`;
-                // Svarbu: apjungiam translateX (centravimui) ir rotate
-                polaroidDiv.style.transform = `translateX(calc(-50% + ${randomX}px)) rotate(${randomRotate}deg)`;
+                polaroidDiv.style.left = `${randomLeft}%`;
+                polaroidDiv.style.transform = `rotate(${randomRotate}deg)`;
                 polaroidDiv.style.zIndex = index;
             } else {
-                // Kompiuteriams: paprastas pasukimas
+                // Kompiuteriams (jei wrapperis yra Flex, JS pozicionavimo nereikia)
                 polaroidDiv.style.transform = `rotate(${randomRotate}deg)`;
             }
             
-            // ... likusi dalis (innerHTML ir onclick) lieka tokia pati ...
-        });
-        */
-
-        shuffled.slice(0, 5).forEach((photo, index) => {
-            const polaroidDiv = document.createElement('div');
-            polaroidDiv.className = 'polaroid';
-            
-            // Atsitiktinis pasukimas
-            const randomRotate = Math.floor(Math.random() * 20) - 10;
-            
-            // Logika mobiliems: jei ekranas mažas, pridedame atsitiktinį paslinkimą (offset)
-            if (window.innerWidth < 600) {
-                const randomX = Math.floor(Math.random() * 40) - 20; // -20px iki 20px
-                const randomY = (index + 1 ) * 15; // Kiekviena kita nuotrauka šiek tiek žemiau
-                polaroidDiv.style.top = `${randomY}px`;
-                polaroidDiv.style.left = `calc(50% + ${randomX}px)`;
-                polaroidDiv.style.transform = `translateX(-50%) rotate(${randomRotate}deg)`;
-            } else {
-                polaroidDiv.style.transform = `rotate(${randomRotate}deg)`;
-            }
-            
+            // ... tavo innerHTML ir onclick dalis ...
             polaroidDiv.innerHTML = `
                 <img src="${photo.src}" alt="${photo.desc}">
                 <p style="text-align:center; font-family: 'Playfair Display'; margin-top: 10px; font-size: 0.8rem; color: #555;">

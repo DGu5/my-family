@@ -392,19 +392,16 @@ html {
 
 @media (max-width: 600px) {
     .gallery-wrapper {
-        display: block;
         position: relative;
-        height: 450px; /* Padidiname aukštį, kad nuotraukos turėtų kur "nukristi" */
-        margin: 0 auto;
+        height: 500px; /* Užtikriname pakankamai vietos vertikaliai */
         width: 100%;
-        overflow: hidden; /* Apsauga, kad pasuktos nuotraukos neišlystų iš ekrano */
+        overflow: hidden;
     }
 
     .polaroid {
         position: absolute !important;
-        left: 50% !important;
-        /* Pašaliname margin-left, nes naudosime translateX */
-        margin-left: 0 !important; 
-        max-width: 180px; /* Mažesnės nuotraukos telefonams atrodo geriau */
+        /* Pašaliname left: 50%, kad JS galėtų laisvai valdyti poziciją */
+        max-width: 160px; 
+        padding: 10px 10px 25px 10px;
     }
 }
