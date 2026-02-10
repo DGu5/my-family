@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 2. Nuotraukų sąrašas
     const images = [
         { src: '../images/apie_sentikybe.jpg', title: 'Senelių sodyba' },
-        { src: '../images/2025-degaiciai.jpeg', title: 'Giminės susitikimas 2025m.' },
+        { src: '../images/2025-degaiciai.JPEG', title: 'Giminės susitikimas 2025m.' },
         { src: '../images/apie_sentikybe.jpg', title: '1945-ųjų vasara' },
         { src: '../images/pirmieji_sentikiai.jpg', title: 'Prosenelio portretas' },
         { src: '../images/apie_sentikybe.jpg', title: 'Giminės medis' },
