@@ -405,3 +405,45 @@ html {
         padding: 10px 10px 25px 10px;
     }
 }
+
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 72.5vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.error-code {
+    font-family: var(--header-font);
+    font-size: 8rem;
+    color: var(--accent-color);
+    margin: 0;
+    opacity: 0.2;
+}
+
+.error-message {
+    margin-top: -40px;
+}
+
+.error-btn {
+    margin-top: 2rem;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.error-btn:hover {
+    opacity: 0.8;
+    transform: translateY(-3px);
+}
+.tree-icon {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
