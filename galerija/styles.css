@@ -1,23 +1,28 @@
+
+.gallery-page {
+    display: block;
+    overflow-y: visible;
+    padding-bottom: 50px;
+}
+
 .gallery-intro {
     text-align: center;
     padding: 60px 20px;
-    background-color: var(--bg-color); /* Naudojame jūsų pagrindinę spalvą */
-    position: relative; /* Užtikrina, kad ji liks savo vietoje sraute */
+    background-color: var(--bg-color);
+    position: relative;
     z-index: 1;
     width: 100%;
 }
 
-.gallery-page {
-    display: block; /* Užtikriname, kad elementai eitų vienas po kito */
-    overflow-y: visible; /* Leidžiame skrolinimą */
-}
-
-/* Asimetriškas tinklelis */
+/* --- NAUJAS HORIZONTALUS TINKLELIS (DESKTOP) --- */
 .masonry-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-auto-rows: 10px; /* Pagrindas lanksčiam aukščiui */
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;       /* Leidžia nuotraukoms keltis į kitą eilutę */
+    gap: 25px;             /* Tarpas tarp kortelių */
+    justify-content: center; 
+    padding: 20px;
+    max-width: 1400px;     /* Apribojame maksimalų galerijos plotį centre */
+    margin: 0 auto;
 }
 
 .gallery-item {
@@ -25,21 +30,29 @@
     padding: 12px 12px 35px 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     transition: all 0.4s ease;
-    cursor: pointer;
-    grid-row-end: span 30; /* Standartinis aukštis */
+    cursor: zoom-in;
     display: flex;
     flex-direction: column;
+    
+    /* Horizontalus vaizdas: vienodas aukštis visoms kortelėms */
+    height: 380px; 
+    flex: 1 1 300px;       /* Bazinis plotis 300px, bet gali augti */
+    max-width: 500px;
 }
 
-/* Skirtingi aukščiai asimetrijai sukurti */
-.gallery-item.tall { grid-row-end: span 45; }
-.gallery-item.short { grid-row-end: span 25; }
+/* Horizontalioji asimetrija (valdoma per JS priskiriamas klases) */
+.gallery-item.tall { 
+    flex: 2 1 450px;       /* Platesnė nuotrauka */
+}
+
+.gallery-item.short { 
+    flex: 0.7 1 200px;     /* Siauresnė nuotrauka */
+}
 
 .gallery-item img {
     width: 100%;
-    /* Svarbu: 'tall' klasė padidins šį plotą automatiškai per grid-row-end */
-    flex-grow: 1; 
-    object-fit: cover;
+    height: 100%;          /* Užpildo kortelės vidų */
+    object-fit: cover;     /* Nukerpa nuotrauką, kad ji užpildytų plotą */
     border-radius: 2px;
 }
 
@@ -57,18 +70,26 @@
     z-index: 5;
 }
 
+/* --- MOBILUS VAIZDAS (iPhone ir kiti) --- */
 @media (max-width: 600px) {
     .masonry-grid {
-        display: flex;
         flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
+
     .gallery-item {
-        margin-bottom: 20px;
+        width: 100%;
+        height: auto;      /* Leidžiame nuotraukai turėti savo natūralų aukštį */
+        flex: none;
+    }
+
+    .gallery-item img {
+        height: 250px;     /* Fiksuotas aukštis nuotraukai telefone */
     }
 }
 
 /* --- IDENTIŠKAS MODALINIS LANGAS IŠ ISTORIJOS --- */
-
 .modal {
     display: none; 
     position: fixed;
@@ -77,7 +98,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(45, 62, 48, 0.8); /* Solitude žalia su permatomumu */
+    background-color: rgba(45, 62, 48, 0.8); 
     backdrop-filter: blur(5px);
 }
 
@@ -103,32 +124,11 @@
     font-size: 35px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 2100; /* Užtikrina, kad X visada bus viršuje */
+    z-index: 2100;
 }
 
 .close-modal:hover {
     color: #000;
-}
-
-/* Modalo turinio animacija */
-#modalBody {
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Nuotraukos stilius modalo viduje */
-#modalBody img {
-    max-height: 70vh; 
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-    border-radius: 4px;
 }
 
 #modalTitle {
@@ -142,4 +142,23 @@ hr {
     border: none;
     border-top: 1px solid rgba(45, 62, 48, 0.1);
     margin-bottom: 1.5rem;
+}
+
+#modalBody {
+    animation: fadeIn 0.4s ease;
+}
+
+#modalBody img {
+    max-height: 70vh; 
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

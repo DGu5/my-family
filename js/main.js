@@ -77,12 +77,11 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const familyPhotos = [
-        { src: 'images/apie_sentikybe.jpg', desc: 'Senelio gimtinė' },
-        { src: 'images/2025-degaiciai.JPEG', desc: 'Giminės susitikimas 2025m.' },
-        { src: 'images/apie_sentikybe.jpg', desc: 'Pirmieji namai' },
-        { src: 'images/pirmieji_sentikiai.jpg', desc: 'Giminės susitikimas' },
-        { src: 'images/apie_sentikybe.jpg', desc: 'Senoji mokykla' },
-        { src: 'images/pirmieji_sentikiai.jpg', desc: 'Prosenelių vestuvės' }
+        { src: '/images/sentikiu_bendruomene.jpg', desc: 'Sentikių gyvenvietė' },
+        { src: '/images/pakupelkio_cerkve.JPG', desc: 'Pakupelkio sentikių maldos namai' },
+        { src: '/images/neturtingi_sentikiai.jpg', desc: 'Neturtingi sentikiai' },
+        { src: '/images/2025-degaiciai.JPEG', desc: 'Giminės susitikimas 2025m.' },
+        { src: '/images/girgzdutes_piliakalniss.jpg', desc: 'Pagirgždučio piliakalnis' },
     ];
 
     const galleryContainer = document.getElementById('polaroid-gallery');

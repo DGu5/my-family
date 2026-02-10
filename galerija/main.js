@@ -7,12 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 2. Nuotraukų sąrašas
     const images = [
-        { src: '../images/apie_sentikybe.jpg', title: 'Senelių sodyba' },
+        { src: '../images/apie_sentikybe.jpg', title: 'Sentikiai' },
+        { src: '../images/pirmieji_sentikiai.jpg', title: 'Sentikių migracija' },
+        { src: '../images/pirmieji_sentikiai2.jpg', title: 'Pirmieji sentikiai' },
+        { src: '../images/fedojizmas.jpg', title: 'Fedosėjizmas' },
+        { src: '../images/sentikiu_vienuolynas.jpg', title: 'Sentikių vienuolynas' },
+        { src: '../images/sentikiu_bendruomene.jpg', title: 'Sentikių gyvenvietė' },
+        { src: '../images/neturtingi_sentikiai.jpg', title: 'Neturtingi sentikiai' },
+        { src: '../images/turtingi_sentikiai.jpg', title: 'Pasiturinčių sentikių pirklių šeima' },
+        { src: '../images/sentikiai_tarpukariu.jpg', title: 'Sentikiai tarpukariu' },
+        { src: '../images/pakupelkio_cerkve.JPG', title: 'Pakupelkio sentikių maldos namai' },
+        { src: '../images/kolainiu_cerkve.jpg', title: 'Kolainių stačiatikių cerkvė' },
+        { src: '../images/girgzdutes_piliakalniss.jpg', title: 'Pagirgždučio piliakalnis' },
+        { src: '../images/kaimas_zemaitijoje.png', title: 'Kaimas Žemaitijoje' },
         { src: '../images/2025-degaiciai.JPEG', title: 'Giminės susitikimas 2025m.' },
-        { src: '../images/apie_sentikybe.jpg', title: '1945-ųjų vasara' },
-        { src: '../images/pirmieji_sentikiai.jpg', title: 'Prosenelio portretas' },
-        { src: '../images/apie_sentikybe.jpg', title: 'Giminės medis' },
-        { src: '../images/pirmieji_sentikiai.jpg', title: 'Krikštynos' },
     ];
 
     const grid = document.getElementById('dynamic-gallery');
