@@ -78,7 +78,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 document.addEventListener('DOMContentLoaded', function() {
     const familyPhotos = [
         { src: 'images/apie_sentikybe.jpg', desc: 'Senelio gimtinė' },
-        { src: 'images/pirmieji_sentikiai.jpg', desc: 'Velykos 1964 m.' },
+        { src: 'images/2025-degaiciai.jpeg', desc: 'Giminės susitikimas 2025m.' },
         { src: 'images/apie_sentikybe.jpg', desc: 'Pirmieji namai' },
         { src: 'images/pirmieji_sentikiai.jpg', desc: 'Giminės susitikimas' },
         { src: 'images/apie_sentikybe.jpg', desc: 'Senoji mokykla' },
