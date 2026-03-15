@@ -77,3 +77,241 @@
 .source-content strong {
     color: var(--accent-color);
 }
+
+.dna-stats-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.dna-header {
+    font-size: 0.75rem;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.dna-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+}
+
+.dna-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+/* Spalvoti taškai */
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.balti { background-color: #f39c12; }      /* Oranžinė */
+.rytu-europos { background-color: #e74c3c; } /* Šviesiai žalia */
+.balkanai { background-color: #f1c40f; }      /* Geltona */
+.vokietis { background-color: #4ecdc4; }     /* Melsva */
+
+.dna-label {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.dna-percentage {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+/* Sub-grupių hierarchijos linija */
+.main-group .dna-text {
+    position: relative;
+}
+
+.dna-sub-groups {
+    margin-top: 0.5rem;
+    padding-left: 15px;
+    border-left: 1px solid #ddd; /* Pilka vertikali linija */
+    margin-left: -7px;
+}
+
+.dna-sub-groups p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.4rem 0;
+    position: relative;
+}
+
+/* Maži rutuliukai prie sub-grupių */
+.dna-sub-groups p::before {
+    content: '';
+    position: absolute;
+    left: -19px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #a0522d;
+    border-radius: 50%;
+    background: white;
+    transform: translateY(-50%);
+}
+
+.dna-footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.dna-footer p {
+    font-size: 0.75rem;
+    color: #888;
+    font-weight: 600;
+}
+
+.extra-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.circle-outline {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #5d6d7e;
+    border-radius: 50%;
+}
+
+.locations-container {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 20px; /* Tik tarpai iš šonų, jokio background ar border */
+    font-family: 'Inter', sans-serif;
+}
+
+.locations-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.locations-pin {
+    display: flex; 
+    justify-content: center; 
+    gap: 10px;
+}
+
+.locations-header i {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 6px;
+}
+
+.locations-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #333;
+    font-family: var(--header-font);
+}
+
+.locations-header p {
+    margin: 5px 0 0 0;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.locations-content {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.world-map-preview {
+    flex: 1.2;
+    opacity: 0.4; /* Padaryta dar subtiliau */
+    filter: grayscale(100%);
+}
+
+.map-svg {
+    width: 100%;
+    height: auto;
+}
+
+.countries-list-wrapper {
+    flex: 1;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #bbb;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 5px;
+}
+
+.countries-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+/* Stilingas scrollbar */
+.countries-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+.countries-scroll::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+
+.country-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.country-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+/* Vėliavėlių dydis */
+.fi {
+    width: 20px;
+    height: 15px;
+    border-radius: 2px;
+}
+
+.count {
+    font-weight: 700;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .locations-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .world-map-preview {
+        display: none; /* Mobiliems žemėlapį slepiame, kad liktų tik sąrašas */
+    }
+}

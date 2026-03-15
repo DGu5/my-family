@@ -11,6 +11,7 @@
     <script src="../js/header-template.js" defer></script>
     <link rel="icon" type="image/png" href="../oak-tree.png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
@@ -22,6 +23,114 @@
             <p>Mūsų giminės šaknys ir didžiausia bendruomenės dalis telkiasi šiose pasaulio dalyse:</p>
             
             <div id="map" style="height: 500px; width: 100%; max-width: 900px; margin: 3rem auto; border-radius: 8px; border: 1px solid rgba(45, 62, 48, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
+            
+            <div class="dna-stats-container">
+            <div class="dna-header">EUROPA</div>
+            
+            <div class="dna-item main-group">
+                <div class="dna-info">
+                    <span class="dot balti"></span>
+                    <div class="dna-text">
+                        <span class="dna-label">Baltas</span>
+                        <div class="dna-sub-groups">
+                            <p>Lithuania and Poland</p>
+                            <p>Russia, Ukraine and Belarus</p>
+                            <p>Latvia</p>
+                        </div>
+                    </div>
+                </div>
+                <span class="dna-percentage">78,3%</span>
+            </div>
+
+            <div class="dna-item">
+                <div class="dna-info">
+                    <span class="dot rytu-europos"></span>
+                    <span class="dna-label">Rytų Europos europietis</span>
+                </div>
+                <span class="dna-percentage">19,2%</span>
+            </div>
+
+            <div class="dna-item">
+                <div class="dna-info">
+                    <span class="dot balkanai"></span>
+                    <span class="dna-label">Balkanas</span>
+                </div>
+                <span class="dna-percentage">1,5%</span>
+            </div>
+
+            <div class="dna-item">
+                <div class="dna-info">
+                    <span class="dot vokietis"></span>
+                    <span class="dna-label">Vokietis</span>
+                </div>
+                <span class="dna-percentage">1,0%</span>
+            </div>
+
+            <div class="dna-footer">
+                <p>PAPILDOMOS GENETINĖS GRUPĖS <i class="fa-solid fa-circle-info"></i></p>
+                <div class="extra-group">
+                    <span class="circle-outline"></span> Poland
+                </div>
+            </div>
+        </div>
+
+        <div class="locations-container">
+            <div class="locations-header">
+                <div class="locations-pin">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h3>Buvimo vietos</h3>
+                </div>
+                <p>Nustatyti Gusarovų DNR atitikmenys pasaulyje</p>
+            </div>
+
+            <div class="locations-content">
+                <div class="countries-list-wrapper">
+                    <div class="list-header">
+                        <span>Šalis</span>
+                        <span>Atitikmenų skaičius</span>
+                    </div>
+                    <div class="countries-scroll">
+                        <div class="country-row">
+                            <div class="country-name"><span class="fi fi-us"></span> JAV</div>
+                            <div class="count">1.349</div>
+                        </div>
+                        <div class="country-row">
+                            <div class="country-name"><span class="fi fi-de"></span> Vokietija</div>
+                            <div class="count">933</div>
+                        </div>
+                        <div class="country-row">
+                            <div class="country-name"><span class="fi fi-lt"></span> Lietuva</div>
+                            <div class="count">562</div>
+                        </div>
+                        <div class="country-row">
+                            <div class="country-name"><span class="fi fi-gb"></span> Jungtinė Karalystė</div>
+                            <div class="count">394</div>
+                        </div>
+                        <div class="country-row">
+                            <div class="country-name"><span class="fi fi-fi"></span> Suomija</div>
+                            <div class="count">390</div>
+                        </div>
+                        <div class="country-row">
+                            <div class="country-name"><span class="fi fi-pl"></span> Lenkija</div>
+                            <div class="count">341</div>
+                        </div>
+                        <div class="country-row">
+                            <div class="country-name"><span class="fi fi-se"></span> Švedija</div>
+                            <div class="count">288</div>
+                        </div>
+                        <div class="country-row">
+                            <div class="country-name"><span class="fi fi-lv"></span> Latvija</div>
+                            <div class="count">251</div>
+                        </div>
+                        <div class="country-row">
+                            <div class="country-name"><span class="fi fi-ua"></span> Ukraina</div>
+                            <div class="count">163</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
             <div class="data-source">
                 <div class="source-divider"></div>
                 <div class="source-content">
