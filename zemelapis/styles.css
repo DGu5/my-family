@@ -249,6 +249,7 @@
 }
 
 .countries-list-wrapper {
+    width: 100%;
     flex: 1;
 }
 
