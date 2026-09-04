@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apklausa apie Jubiliatą | Gusarovai</title>
+
+<!-- Naudojame tą patį svetainės stilių ir šriftus kaip ir kituose puslapiuose -->
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../oak-tree.png">
+<script src="../js/header-template.js" defer></script>
+
+<style>
+  /* ====== APKLAUSOS PUSLAPIO STILIUS ======
+     Nepriklauso nuo bendro styles.css, kad puslapis veiktų
+     net jei jį naudosite atskirai. Mobile-first: dideli šriftai,
+     didelės mygtukų paspaudimo zonos. */
+
+  :root{
+    --apk-bg: #FAF3E8;
+    --apk-card: #FFFFFF;
+    --apk-wine: #8B3A3A;
+    --apk-wine-dark: #6E2C2C;
+    --apk-gold: #C9A227;
+    --apk-text: #2E2420;
+    --apk-muted: #8A7C6E;
+    --apk-border: #EAE0CF;
+    --apk-success: #3F7D4F;
+    --apk-error: #B33A3A;
+  }
+
+  .apk-main{
+    background: var(--apk-bg);
+    min-height: 100vh;
+    padding: 1.5rem 1rem 3rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    color: var(--apk-text);
+  }
+
+  .apk-hero{
+    text-align: center;
+    max-width: 480px;
+    margin-bottom: 1.5rem;
+  }
+
+  .apk-hero h1{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 8vw, 2.6rem);
+    margin: 0 0 0.5rem;
+    color: var(--apk-wine-dark);
+    line-height: 1.2;
+  }
+
+  .apk-hero p{
+    font-size: clamp(1rem, 4vw, 1.15rem);
+    color: var(--apk-muted);
+    margin: 0;
+  }
+
+  .apk-card{
+    width: 100%;
+    max-width: 480px;
+    background: var(--apk-card);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(107, 60, 30, 0.1);
+    padding: 1.75rem 1.5rem 1.5rem;
+    box-sizing: border-box;
+  }
+
+  /* --- progresas --- */
+  .apk-progress{ margin-bottom: 1.5rem; }
+
+  .apk-progress-track{
+    width: 100%;
+    height: 8px;
+    background: var(--apk-border);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+  }
+
+  .apk-progress-fill{
+    height: 100%;
+    width: 10%;
+    background: linear-gradient(90deg, var(--apk-gold), var(--apk-wine));
+    border-radius: 999px;
+    transition: width 0.35s ease;
+  }
+
+  .apk-progress-label{
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--apk-muted);
+    letter-spacing: 0.02em;
+  }
+
+  /* --- klausimas --- */
+  .apk-question-text{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 6.5vw, 1.9rem);
+    line-height: 1.35;
+    margin: 0 0 1.4rem;
+    color: var(--apk-text);
+  }
+
+  .apk-options{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .apk-option-btn{
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 4.2vw, 1.1rem);
+    font-weight: 500;
+    padding: 0.95rem 1.1rem;
+    border-radius: 14px;
+    border: 2px solid var(--apk-border);
+    background: #FFFDF9;
+    color: var(--apk-text);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.1s ease;
+    min-height: 48px;
+  }
+
+  .apk-option-btn:active{ transform: scale(0.98); }
+
+  .apk-option-btn.selected{
+    border-color: var(--apk-wine);
+    background: #FBEFEA;
+    font-weight: 700;
+  }
+
+  /* --- navigacija --- */
+  .apk-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .apk-nav-btn{
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.85rem 1.4rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    min-height: 48px;
+    flex: 1;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+  }
+
+  .apk-nav-btn:active{ transform: scale(0.97); }
+
+  .apk-nav-btn:disabled{
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .apk-nav-btn.secondary{
+    background: transparent;
+    border: 2px solid var(--apk-wine);
+    color: var(--apk-wine);
+    flex: 0 0 auto;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  .apk-nav-btn.primary{
+    background: var(--apk-wine);
+    color: #fff;
+  }
+
+  /* --- rezultatai --- */
+  .apk-results{
+    width: 100%;
+    max-width: 480px;
+    background: var(--apk-card);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(107, 60, 30, 0.1);
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .apk-results h2{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
+    margin: 0 0 0.5rem;
+    color: var(--apk-wine-dark);
+  }
+
+  .apk-results-score{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 14vw, 3.4rem);
+    color: var(--apk-wine);
+    margin: 0.3rem 0;
+  }
+
+  .apk-results-message{
+    font-size: 1.05rem;
+    color: var(--apk-muted);
+    margin: 0 0 1.6rem;
+  }
+
+  .apk-breakdown{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .apk-breakdown-item{
+    border: 1px solid var(--apk-border);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .apk-breakdown-item .q{
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .apk-breakdown-item .a{ color: var(--apk-muted); }
+
+  .apk-breakdown-item.correct{ border-color: var(--apk-success); }
+  .apk-breakdown-item.wrong{ border-color: var(--apk-error); }
+
+  .apk-breakdown-item .icon{ margin-right: 0.4rem; }
+  .apk-breakdown-item.correct .icon{ color: var(--apk-success); }
+  .apk-breakdown-item.wrong .icon{ color: var(--apk-error); }
+
+  [hidden]{ display: none !important; }
+</style>
+</head>
+<body>
+
+<main class="apk-main">
+
+  <div class="apk-hero">
+    <h1>Kiek gerai pažįsti jubiliatą?</h1>
+    <p>10 klausimų jo garbei — pabandykime atspėti kartu!</p>
+  </div>
+
+  <!-- KLAUSIMŲ KORTELĖ -->
+  <section class="apk-card" id="apk-quiz">
+    <div class="apk-progress">
+      <div class="apk-progress-track">
+        <div class="apk-progress-fill" id="apk-progress-fill"></div>
+      </div>
+      <span class="apk-progress-label" id="apk-progress-label">Klausimas 1 iš 10</span>
+    </div>
+
+    <h2 class="apk-question-text" id="apk-question-text"></h2>
+    <div class="apk-options" id="apk-options"></div>
+
+    <div class="apk-nav">
+      <button class="apk-nav-btn secondary" id="apk-btn-back">‹ Grįžti</button>
+      <button class="apk-nav-btn primary" id="apk-btn-next" disabled>Sekantis ›</button>
+    </div>
+  </section>
+
+  <!-- REZULTATŲ KORTELĖ -->
+  <section class="apk-results" id="apk-results" hidden>
+    <h2>Rezultatas</h2>
+    <p class="apk-results-score" id="apk-results-score">0 / 10</p>
+    <p class="apk-results-message" id="apk-results-message"></p>
+    <div class="apk-breakdown" id="apk-breakdown"></div>
+    <button class="apk-nav-btn primary" id="apk-btn-restart" style="width:100%;">Bandyti dar kartą</button>
+  </section>
+
+</main>
+
+<script>
+/* ============================================================
+   PAVYZDINIAI KLAUSIMAI — pakeiskite tekstą, variantus ir
+   "correct" indeksą (0 = pirmas variantas, 1 = antras, ir t.t.)
+   pagal tikrus jubiliato atsakymus.
+   ============================================================ */
+const APK_QUESTIONS = [
+  {
+    q: "Kelintais metais gimė jubiliatas?",
+    options: ["1958", "1962", "1966", "1970"],
+    correct: 1
+  },
+  {
+    q: "Kuriame mieste gimė jubiliatas?",
+    options: ["Vilniuje", "Kaune", "Klaipėdoje", "Šiauliuose"],
+    correct: 0
+  },
+  {
+    q: "Koks jubiliato mėgstamiausias patiekalas?",
+    options: ["Cepelinai", "Šaltibarščiai", "Kepta žuvis", "Balandėliai"],
+    correct: 0
+  },
+  {
+    q: "Kokia jubiliato mėgstamiausia spalva?",
+    options: ["Mėlyna", "Žalia", "Raudona", "Geltona"],
+    correct: 2
+  },
+  {
+    q: "Kokį pomėgį jubiliatas puoselėja jau daugiau nei 20 metų?",
+    options: ["Sodininkystę", "Žvejybą", "Fotografiją", "Šachmatus"],
+    correct: 1
+  },
+  {
+    q: "Kur jubiliatas dažniausiai leidžia vasaros atostogas?",
+    options: ["Palangoje", "Kaimo sodyboje", "Užsienyje", "Namuose su anūkais"],
+    correct: 0
+  },
+  {
+    q: "Koks jubiliato mėgstamiausias filmas ar serialas?",
+    options: ["Seni gerai lietuviški filmai", "Detektyvai", "Komedijos", "Dokumentika"],
+    correct: 3
+  },
+  {
+    q: "Kiek anūkų turi jubiliatas?",
+    options: ["1", "2", "3", "4 ar daugiau"],
+    correct: 2
+  },
+  {
+    q: "Kokia jubiliato mėgstamiausia frazė ar posakis?",
+    options: [
+      "„Viskas bus gerai“",
+      "„Darbas žmogų puošia“",
+      "„Kantrybė ir darbas — viską nugali“",
+      "„Gyvenimas per trumpas nuobodului“"
+    ],
+    correct: 0
+  },
+  {
+    q: "Kokia dovana jubiliatui labiausiai patiktų?",
+    options: [
+      "Bendra šeimos nuotrauka albume",
+      "Kelionė",
+      "Naujas įrankis sodui",
+      "Vakarienė su visa šeima"
+    ],
+    correct: 3
+  }
+];
+
+/* ============================================================
+   LOGIKA — šios dalies keisti nereikia
+   ============================================================ */
+let apkCurrent = 0;
+const apkAnswers = new Array(APK_QUESTIONS.length).fill(null);
+
+const elQuiz = document.getElementById('apk-quiz');
+const elResults = document.getElementById('apk-results');
+const elQuestionText = document.getElementById('apk-question-text');
+const elOptions = document.getElementById('apk-options');
+const elProgressFill = document.getElementById('apk-progress-fill');
+const elProgressLabel = document.getElementById('apk-progress-label');
+const elBtnBack = document.getElementById('apk-btn-back');
+const elBtnNext = document.getElementById('apk-btn-next');
+const elBtnRestart = document.getElementById('apk-btn-restart');
+const elResultsScore = document.getElementById('apk-results-score');
+const elResultsMessage = document.getElementById('apk-results-message');
+const elBreakdown = document.getElementById('apk-breakdown');
+
+function renderQuestion(){
+  const total = APK_QUESTIONS.length;
+  const item = APK_QUESTIONS[apkCurrent];
+
+  elProgressFill.style.width = ((apkCurrent) / (total - 1)) * 100 + '%';
+  elProgressLabel.textContent = `Klausimas ${apkCurrent + 1} iš ${total}`;
+
+  elQuestionText.textContent = item.q;
+  elOptions.innerHTML = '';
+
+  item.options.forEach((optionText, idx) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'apk-option-btn';
+    btn.textContent = optionText;
+    if (apkAnswers[apkCurrent] === idx) btn.classList.add('selected');
+    btn.addEventListener('click', () => {
+      apkAnswers[apkCurrent] = idx;
+      renderQuestion();
+    });
+    elOptions.appendChild(btn);
+  });
+
+  elBtnBack.disabled = apkCurrent === 0;
+  elBtnNext.disabled = apkAnswers[apkCurrent] === null;
+  elBtnNext.textContent = (apkCurrent === total - 1) ? 'Pateikti atsakymus ✓' : 'Sekantis ›';
+}
+
+elBtnBack.addEventListener('click', () => {
+  if (apkCurrent > 0){
+    apkCurrent--;
+    renderQuestion();
+  }
+});
+
+elBtnNext.addEventListener('click', () => {
+  if (apkCurrent < APK_QUESTIONS.length - 1){
+    apkCurrent++;
+    renderQuestion();
+  } else {
+    submitQuiz();
+  }
+});
+
+function submitQuiz(){
+  let score = 0;
+  elBreakdown.innerHTML = '';
+
+  APK_QUESTIONS.forEach((item, idx) => {
+    const userAnswerIdx = apkAnswers[idx];
+    const isCorrect = userAnswerIdx === item.correct;
+    if (isCorrect) score++;
+
+    const div = document.createElement('div');
+    div.className = 'apk-breakdown-item ' + (isCorrect ? 'correct' : 'wrong');
+    div.innerHTML = `
+      <div class="q"><span class="icon">${isCorrect ? '✓' : '✕'}</span>${idx + 1}. ${item.q}</div>
+      <div class="a">Tavo atsakymas: ${userAnswerIdx !== null ? item.options[userAnswerIdx] : '—'}</div>
+      ${isCorrect ? '' : `<div class="a">Teisingas atsakymas: ${item.options[item.correct]}</div>`}
+    `;
+    elBreakdown.appendChild(div);
+  });
+
+  elResultsScore.textContent = `${score} / ${APK_QUESTIONS.length}`;
+
+  let message;
+  const pct = score / APK_QUESTIONS.length;
+  if (pct === 1) message = 'Nepriekaištingai! Tu jį pažįsti geriau nei jis pats save. 🎉';
+  else if (pct >= 0.8) message = 'Puikus rezultatas — beveik viską žinojai!';
+  else if (pct >= 0.5) message = 'Neblogai! Bet dar yra ką sužinoti apie jubiliatą.';
+  else message = 'Na, matyt, laikas praleisti daugiau laiko kartu! 😄';
+  elResultsMessage.textContent = message;
+
+  elQuiz.hidden = true;
+  elResults.hidden = false;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+elBtnRestart.addEventListener('click', () => {
+  apkCurrent = 0;
+  apkAnswers.fill(null);
+  elResults.hidden = true;
+  elQuiz.hidden = false;
+  renderQuestion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+renderQuestion();
+</script>
+
+</body>
+</html>
