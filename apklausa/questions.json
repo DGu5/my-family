@@ -1,0 +1,62 @@
+[
+  {
+    "q": "Kelintais metais gimė jubiliatas?",
+    "options": ["1958", "1962", "1966", "1970"],
+    "correct": 1
+  },
+  {
+    "q": "Kuriame mieste gimė jubiliatas?",
+    "options": ["Vilniuje", "Kaune", "Klaipėdoje", "Šiauliuose"],
+    "correct": 0
+  },
+  {
+    "q": "Koks jubiliato mėgstamiausias patiekalas?",
+    "options": ["Cepelinai", "Šaltibarščiai", "Kepta žuvis", "Balandėliai"],
+    "correct": 0
+  },
+  {
+    "q": "Kokia jubiliato mėgstamiausia spalva?",
+    "options": ["Mėlyna", "Žalia", "Raudona", "Geltona"],
+    "correct": 2
+  },
+  {
+    "q": "Kokį pomėgį jubiliatas puoselėja jau daugiau nei 20 metų?",
+    "options": ["Sodininkystę", "Žvejybą", "Fotografiją", "Šachmatus"],
+    "correct": 1
+  },
+  {
+    "q": "Kur jubiliatas dažniausiai leidžia vasaros atostogas?",
+    "options": ["Palangoje", "Kaimo sodyboje", "Užsienyje", "Namuose su anūkais"],
+    "correct": 0
+  },
+  {
+    "q": "Koks jubiliato mėgstamiausias filmas ar serialas?",
+    "options": ["Seni geri lietuviški filmai", "Detektyvai", "Komedijos", "Dokumentika"],
+    "correct": 3
+  },
+  {
+    "q": "Kiek anūkų turi jubiliatas?",
+    "options": ["1", "2", "3", "4 ar daugiau"],
+    "correct": 2
+  },
+  {
+    "q": "Kokia jubiliato mėgstamiausia frazė ar posakis?",
+    "options": [
+      "„Viskas bus gerai“",
+      "„Darbas žmogų puošia“",
+      "„Kantrybė ir darbas — viską nugali“",
+      "„Gyvenimas per trumpas nuobodului“"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "Kokia dovana jubiliatui labiausiai patiktų?",
+    "options": [
+      "Bendra šeimos nuotrauka albume",
+      "Kelionė",
+      "Naujas įrankis sodui",
+      "Vakarienė su visa šeima"
+    ],
+    "correct": 3
+  }
+]
