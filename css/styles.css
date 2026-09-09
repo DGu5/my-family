@@ -447,3 +447,20 @@ html {
     color: var(--accent-color);
     margin-bottom: 1rem;
 }
+
+.f3 path.link {
+  stroke: #3e5241;
+}
+
+.f3 path.link.f3-path-to-main {
+  stroke: #6b9080; /* or whatever accent you'd like for the highlighted path */
+}
+
+.f3 {
+  --male-color: #3e5241 !important;
+
+  /* Pick ONE of the three alternatives below for --female-color, or try your own */
+  --female-color: #b08a80 !important; /* Option A: Dusty Rose (closest to the library default) */
+  /* --female-color: #c48b6a; */ /* Option B: Terracotta */
+  /* --female-color: #9c7a8a; */ /* Option C: Muted Plum */
+}

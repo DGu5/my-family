@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <script src="https://balkan.app/js/FamilyTree.js"></script>
     <link rel="icon" type="image/png" href="./oak-tree.png">
     <script src="js/header-template.js" defer></script>
+    <script type="module" src="js/main.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/family-chart@latest/dist/styles/family-chart.css">
 </head>
 <body>
     <main-header></main-header>
@@ -31,7 +32,7 @@
 
         <section id="medis" class="content-section">
             <h2>Giminės Medis</h2>
-            <div id="tree"></div>
+            <div id="tree" class="f3 f3-cont"></div>
         </section>
 
         <section id="galerija" class="content-section">
@@ -45,7 +46,5 @@
 
     <div id="common-footer"></div>
     <script src="js/footer-template.js"></script>
-
-    <script src="js/main.js"></script>
 </body>
 </html>
