@@ -30,6 +30,11 @@
     "correct": 1
   },
   {
+    "q": "Ar tarnavo armijoje?",
+    "options": ["Taip", "Ne"],
+    "correct": 0
+  },
+  {
     "q": "Koks buvo pirmasis Kęstučio automobilis?",
     "options": ["ZAZ", "Moskvič", "Volga", "VW"],
     "correct": 0
@@ -40,19 +45,14 @@
     "correct": 0
   },
   {
-    "q": "HHH?",
-    "options": ["1", "2", "3", "4 ar daugiau"],
-    "correct": 2
-  },
-  {
-    "q": "KKKK?",
+    "q": "Mėgstamiausia Kęstuko grupė?",
     "options": [
-      "„Viskas bus gerai“",
-      "„Darbas žmogų puošia“",
-      "„Kantrybė ir darbas — viską nugali“",
-      "„Gyvenimas per trumpas nuobodului“"
+      "Antis",
+      "Fojė",
+      "Poliarizuoti stiklai",
+      "Hiperbolė"
     ],
-    "correct": 0
+    "correct": 3
   },
   {
     "q": "Ką pirmiausia padaro atsikėlęs ryte?",
